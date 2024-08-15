@@ -1,0 +1,30 @@
+---
+import Layout from "../layout/Layout.astro";
+import LandingPage from "../component/LandingPage.jsx";
+import Navbar from "../component/Navbar.jsx";
+import ModalPrivacyPolicy from "../component/ModalPrivacyPolicy.jsx";
+import { Link } from "@nextui-org/react";
+---
+
+<Layout title="Landing Page">
+  <div class="bg-[#006676] min-h-screen flex flex-col">
+    <Navbar client:visible />
+    <LandingPage client:visible />
+    <div class="mt-auto flex justify-between items-center px-10 py-5 text-white text-sm">
+      <div class="flex items-center space-x-2">
+        <Link href="https://www.instagram.com/pestdoc_ai" className="text-white">Instagram</Link>
+        <span>/</span>
+        <Link href="https://www.tiktok.com/@pestdoc_ai" className="text-white">TikTok</Link>
+        <span>/</span>
+        <Link href="#" className="text-white">X</Link>
+      </div>
+      <div>
+        <ModalPrivacyPolicy client:visible />
+        <span class="mx-2">/</span>
+        <span>
+          <Link href="#" className="text-white">Full site is Coming Soon</Link>
+        </span>
+      </div>
+    </div>
+  </div>
+</Layout>
