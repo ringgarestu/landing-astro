@@ -7,8 +7,8 @@ import { Link } from "@nextui-org/react";
 ---
 
 <Layout title="Landing Page">
-  <div class="bg-[#006676] min-h-screen flex flex-col">
-    <Navbar client:visible />
+  <div class="bg-[#006676] dark:bg-[#00494d] min-h-screen flex flex-col">
+    <Navbar client:load />
     <LandingPage client:visible />
     <div class="mt-auto flex justify-between items-center px-10 py-5 text-white text-sm">
       <div class="flex items-center space-x-2">
@@ -22,7 +22,7 @@ import { Link } from "@nextui-org/react";
         <ModalPrivacyPolicy client:visible />
         <span class="mx-2">/</span>
         <span>
-          <Link href="#" className="text-white">Full site is Coming Soon</Link>
+          <Link href="#" className="text-white">Full Site is Coming Soon</Link>
         </span>
       </div>
     </div>

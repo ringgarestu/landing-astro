@@ -1,10 +1,11 @@
 import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand } from "@nextui-org/react";
 import { LogoPestDoc } from "../component/LogoPestDoc.jsx";
+import ThemeSwitcher from "./ThemeSwithcer.jsx";
 
-export default function App() {
+export default function NavbarComponent() {
   return (
-    <Navbar className="bg-[#006676]">
+    <Navbar className="bg-[#006676] dark:bg-[#00494d]">
       <NavbarBrand>
         <LogoPestDoc />
         <p className="text-white text-base ml-2">
@@ -13,6 +14,9 @@ export default function App() {
           <span className="font-bold">-AI</span>
         </p>
       </NavbarBrand>
+      <div className="ml-auto flex items-center space-x-4">
+        <ThemeSwitcher />
+      </div>
     </Navbar>
   );
 }

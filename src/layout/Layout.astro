@@ -4,8 +4,6 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider as NextThemeProvider } from "next-themes";
 ---
 
 <!doctype html>
@@ -15,13 +13,21 @@ import { ThemeProvider as NextThemeProvider } from "next-themes";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="./assets/PestDoc-AI-Logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{title}</title><script is:inline>
+      if (localStorage.getItem("darkMode") === "true" || (!("darkMode" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body>
-    <NextUIProvider>
-      <NextThemeProvider enableSystem attribute="class" defaultTheme="light" disableTransitionOnChange themes={["light", "dark", "system"]}>
-        <slot />
-      </NextThemeProvider>
-    </NextUIProvider>
+    <slot />
+    <script>
+      const darkModePreference = window.localStorage.getItem("darkMode");
+      if (darkModePreference === "true") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </body>
 </html>

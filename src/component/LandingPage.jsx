@@ -51,7 +51,7 @@ const LandingPage = () => {
         <p className="text-sm md:text-base text-white mb-8">Get ready to be the first to experience the sophistication of the PestDoc-AI app. Register your email to get an invitation when we launch. Thank you.</p>
         <form className="flex flex-col sm:flex-row gap-4 mb-6">
           <Input className="w-full sm:w-2/3" type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Button type="submit" onPress={handleSubmit} className="w-full sm:w-auto bg-[#28E7DB] text-white font-medium h-12" style={{ borderRadius: "0.5rem" }} disabled={isSubmitting}>
+          <Button type="submit" onPress={handleSubmit} className="w-full sm:w-auto bg-[#28E7DB] dark:bg-[#86a0a3] text-white font-medium h-12" style={{ borderRadius: "0.5rem" }} disabled={isSubmitting}>
             {isSubmitting ? "Submitting..." : "Notify me"}
           </Button>
         </form>
