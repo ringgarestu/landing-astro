@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import { Button, Input } from "@nextui-org/react";
+import ImageSlider from "./Swiper";
 const LandingPage = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +58,7 @@ const LandingPage = () => {
         </form>
         {responseMessage && <p className="text-black mb-6">{responseMessage}</p>}
       </div>
+      <div className="m-0">{/* <ImageSlider /> */}</div>
     </div>
   );
 };

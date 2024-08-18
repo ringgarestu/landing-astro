@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@nextui-org/react";
+import { Switch } from "@nextui-org/react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeSwitcher = () => {
@@ -22,9 +22,9 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <Button auto color="default" icon={darkMode ? <FaMoon /> : <FaSun />} onClick={toggleDarkMode}>
+    <Switch auto color="default" icon={darkMode ? <FaMoon /> : <FaSun />} onClick={toggleDarkMode}>
       {darkMode ? "Dark" : "Light"}
-    </Button>
+    </Switch>
   );
 };
 

@@ -1,0 +1,11 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../component/Navbar.jsx";
+import FAQ from "../component/FAQ.jsx";
+---
+
+<Layout title="PestDoc-AI | FAQ">
+  <div class="bg-[#FFFFFF] min-h-screen flex flex-col">
+    <FAQ client:visible />
+  </div>
+</Layout>
