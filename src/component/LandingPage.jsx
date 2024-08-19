@@ -1,7 +1,8 @@
 import { useState } from "react";
 import React from "react";
 import { Button, Input } from "@nextui-org/react";
-import ImageSlider from "./Swiper";
+import TableEmail from "../component/TableEmail.jsx";
+
 const LandingPage = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,20 +46,27 @@ const LandingPage = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
-    <div className="flex flex-col md:flex-row p-4 md:p-10 items-center">
-      <div className="w-full md:w-1/2 mb-8 md:mb-0">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Hey Everybody! We're coming soon...</h2>
-        <p className="text-sm md:text-base text-white mb-8">Get ready to be the first to experience the sophistication of the PestDoc-AI app. Register your email to get an invitation when we launch. Thank you.</p>
-        <form className="flex flex-col sm:flex-row gap-4 mb-6">
-          <Input className="w-full sm:w-2/3" type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Button type="submit" onPress={handleSubmit} className="w-full sm:w-auto bg-[#28E7DB] dark:bg-[#86a0a3] text-white font-medium h-12" style={{ borderRadius: "0.5rem" }} disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Notify me"}
-          </Button>
-        </form>
-        {responseMessage && <p className="text-black mb-6">{responseMessage}</p>}
+    <div>
+      <div className="flex flex-col md:flex-row p-4 md:p-10 items-center">
+        <div className="w-full md:w-1/2 mb-8 md:mb-0">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Hey Everybody! We're coming soon...</h2>
+          <p className="text-sm md:text-base text-white mb-8">Get ready to be the first to experience the sophistication of the PestDoc-AI app. Register your email to get an invitation when we launch. Thank you.</p>
+          <form className="flex flex-col sm:flex-row gap-4 mb-6">
+            <Input className="w-full sm:w-2/3" type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} client:visible />
+            <Button type="submit" onPress={handleSubmit} className="w-full sm:w-auto bg-[#28E7DB] dark:bg-[#86a0a3] text-white font-medium h-12" style={{ borderRadius: "0.5rem" }} disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Notify me"}
+            </Button>
+          </form>
+          {responseMessage && <p className="text-black mb-6">{responseMessage}</p>}
+        </div>
+        <div className="m-0">{/* <ImageSlider /> */}</div>
       </div>
-      <div className="m-0">{/* <ImageSlider /> */}</div>
+
+      <div className="mt-8">
+        <TableEmail />
+      </div>
     </div>
   );
 };

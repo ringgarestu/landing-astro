@@ -26,21 +26,22 @@ const FAQ = () => {
       });
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>Error: {error.message}</p>;
+  // }
 
   const defaultContent = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, odit in illum dolores veritatis asperiores ex vero adipisci atque qui molestias officiis accusamus explicabo excepturi ratione rerum ad repudiandae beatae!";
+
   return (
     <div className="min-h-screen bg-[#ffffff] flex justify-center items-center">
-      <div className="w-2/3 h-2/4 bg-[#006676] rounded p-6">
+      <div className="w-2/3 h-2/4 bg-[#006676] dark:bg-[#00494d] rounded-lg p-6">
         <Breadcrumbs>
           <BreadcrumbItem>
-            <Link to="/landingpage" className="text-white font-bold">
+            <Link href="/" as="a" className="text-white font-bold">
               Home
             </Link>
           </BreadcrumbItem>
