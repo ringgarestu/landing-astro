@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Image } from "@nextui-org/react";
 import TableEmail from "../component/TableEmail.jsx";
 
 const LandingPage = () => {
@@ -61,9 +61,10 @@ const LandingPage = () => {
           </form>
           {responseMessage && <p className="text-black mb-6">{responseMessage}</p>}
         </div>
-        <div className="m-0">{/* <ImageSlider /> */}</div>
+        <div className="m-0 w-full md:w-1/2">
+          <Image src="assets/hp.svg" />
+        </div>
       </div>
-
       <div className="mt-8">
         <TableEmail />
       </div>

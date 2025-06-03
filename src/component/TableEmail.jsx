@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useState, useCallback, useLayoutEffect, useRef } from "react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Button, Badge, CircularProgress } from "@nextui-org/react";
 
 const columns = [
@@ -15,7 +15,7 @@ const TableEmail = () => {
   const [isShuffling, setIsShuffling] = useState(false);
   const scrollPositionRef = useRef(0);
 
-  const apiUrl = "https://reqres.in/api/users?page=1&per_page=12"; // Mengambil lebih banyak email
+  const apiUrl = "https://reqres.in/api/users?page=1&per_page=12";
 
   const shuffleArray = useCallback((array) => {
     let shuffled = [...array];
@@ -36,7 +36,7 @@ const TableEmail = () => {
       const data = await response.json();
       const emails = data.data.map((user) => ({ email: user.email }));
       setAllEmails(emails);
-      setDisplayedEmails(emails.slice(0, 4)); // Menampilkan 4 email pertama
+      setDisplayedEmails(emails.slice(0, 4));
     } catch (error) {
       setError(error.message);
     } finally {
@@ -57,15 +57,15 @@ const TableEmail = () => {
     setIsShuffling(true);
     setTimeout(() => {
       const shuffled = shuffleArray(allEmails);
-      setDisplayedEmails(shuffled.slice(0, 4)); // Mengambil 4 email acak
+      setDisplayedEmails(shuffled.slice(0, 4));
       setShuffleCount((prevCount) => prevCount + 1);
       setIsShuffling(false);
-    }, 1000); // Delay for 1 second to show the CircularProgress
+    }, 1000);
   }, [allEmails, shuffleArray]);
 
   const handleReset = useCallback(() => {
     scrollPositionRef.current = window.pageYOffset;
-    setDisplayedEmails(allEmails.slice(0, 4)); // Menampilkan 4 email pertama lagi
+    setDisplayedEmails(allEmails.slice(0, 4));
     setShuffleCount(0);
   }, [allEmails]);
 
